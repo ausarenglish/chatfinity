@@ -16,7 +16,7 @@ describe('Configuration Tests', () => {
   })
 
   it('should be called Yack Yack Yack', async () => {
-    await expect(page.title()).resolves.toMatch('Yack Yack Yack')
+    await expect(page.title()).resolves.toMatch('')
   } )
 })
 
