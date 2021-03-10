@@ -6,6 +6,7 @@ export default function Post({ title, body, styling }) {
     <div className={`Post ${styling}`}>
       <h4>{title}:</h4>
       <p>{body}</p>
+      <button>Comment</button>
     </div>
   );
 }

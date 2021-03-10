@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// notes: import {getComments} from '../actions/actions' (action for team)
 import { getPosts } from '../actions/actions';
+// notes: import Comment from...(copy from Post)
 import Post from './Post.jsx';
 import PostForm from './PostForm.jsx';
 import Navbar from './Navbar.jsx';
 
 const mapStateToProps = (state) => {
-  //
+  // notes: change bottom for comments
   return { posts: state.posts, userId: state.scratch.user.id };
 };
 

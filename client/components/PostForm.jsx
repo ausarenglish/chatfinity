@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch) => {
     },
   };
 };
-
+// notes: duplicate CommentForm
 class PostForm extends Component {
   render() {
     return (
