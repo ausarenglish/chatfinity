@@ -43,3 +43,43 @@ export const updateBody = (newBody) => ({
   type: types.UPDATE_BODY,
   payload: newBody,
 });
+
+
+export const getComments = () => (dispatch) => {
+  fetch('/comments')
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      dispatch({ type: types.GET_COMMENTS, payload: data });
+    });
+};
+
+export const saveComment = (title, body, id) => (dispatch) => {
+  const reqBody = {
+    title,
+    body,
+    comment_id: id,
+  };
+
+  fetch('/comments', {
+    method: 'POST',
+    headers: { 'Content-Type': 'Application/JSON' },
+    body: JSON.stringify(reqBody),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      dispatch({ type: types.SAVE_COMMENT, payload: data });
+    })
+    .catch((e) => console.log(e));
+};
+
+export const updateCommentTitle = (newTitle) => ({
+  type: types.UPDATE_COMMENT_TITLE,
+  payload: newTitle,
+});
+
+export const updateCommentBody = (newBody) => ({
+  type: types.UPDATE_COMMENT_BODY,
+  payload: newBody,
+});
