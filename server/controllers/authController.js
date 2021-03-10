@@ -29,12 +29,22 @@ authController.create = (req, res, next) => {
         RETURNING username, _id`;
 
     //SAVE TO DB
-    db.query(query, [username, hash]).then((data) => {
-      console.log(data.rows[0]);
-      // GET USER ENTRY BACK FROM DB, store in res.locals
-      res.locals.user = data.rows[0];
-      return next();
-    });
+    db.query(query, [username, hash])
+      .then((data) => {
+        console.log(data.rows[0]);
+        // GET USER ENTRY BACK FROM DB, store in res.locals
+        res.locals.user = data.rows[0];
+        next();
+      })
+      // Catch error
+      .catch((e) => {
+        console.log(`ERR: ${e.detail}`);
+        next({
+          log: 'Error in authController.create',
+          status: 401,
+          message: e.detail,
+        });
+      });
   });
 };
 
