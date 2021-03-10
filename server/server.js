@@ -23,13 +23,12 @@ app.get('/secret', authController.verifyUser, (req, res) => {
   return res.status(200).json('here is some secret info!');
 });
 
-if (process.env.NODE_ENV === 'production') {
-  app.use('/build', express.static(path.join(__dirname, '../build/')));
-
-  app.get('/', (req, res) =>
+//Need to have the index page not be contingent on production vs dev
+app.use('/build', express.static(path.join(__dirname, '../build/')));
+app.get('/', (req, res) =>
     res.status(200).sendFile(path.join(__dirname, '../index.html'))
   );
-}
+
 
 app.get('*', (req, res) => {
   return res.status(404).json();
@@ -46,3 +45,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(3000);
+
+module.exports = app;
