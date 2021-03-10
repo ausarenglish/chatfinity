@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Navbar from './Navbar.jsx';
 
+
 // Custom hook for handling input boxes
 // saves us from creating onChange handlers for them individually
 const useInput = (init) => {
@@ -29,6 +30,8 @@ const Login = (props) => {
   const [passwordError, setPasswordError] = useState(null);
 
   const loginUser = () => {
+    // BUG: check if username exists in database, if not break redirect to signup;
+
     // check if name is empty
     if (username === '') {
       setUserNameError('required');

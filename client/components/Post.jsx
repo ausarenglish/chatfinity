@@ -10,3 +10,4 @@ export default function Post({ title, body, styling }) {
     </div>
   );
 }
+

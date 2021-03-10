@@ -1,7 +1,11 @@
 export const AUTHENTICATE = 'AUTHENTICATE';
 
 export const GET_POSTS = 'GET_POSTS';
-
 export const UPDATE_TITLE = 'UPDATE_TITLE';
 export const UPDATE_BODY = 'UPDATE_BODY';
 export const SAVE_POST = 'SAVE_POST';
+
+export const GET_COMMENTS = 'GET_COMMENTS';
+export const UPDATE_COMMENT_TITLE = 'UPDATE_COMMENT_TITLE';
+export const UPDATE_COMMENT_BODY = 'UPDATE_COMMENT_BODY';
+export const SAVE_COMMENT = 'SAVE_COMMENT';
