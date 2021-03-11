@@ -34,12 +34,12 @@ authController.create = (req, res, next) => {
         console.log(data.rows[0]);
         // GET USER ENTRY BACK FROM DB, store in res.locals
         res.locals.user = data.rows[0];
-        next();
+        return next();
       })
       // Catch error
       .catch((e) => {
         console.log(`ERR: ${e.detail}`);
-        next({
+        return next({
           log: 'Error in authController.create',
           status: 401,
           message: e.detail,
