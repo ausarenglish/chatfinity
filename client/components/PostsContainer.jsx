@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// notes: import {getComments} from '../actions/actions' (action for team)
+// notes: import {getComments} from '../actions/action,s' (action for team)
 import { getPosts } from '../actions/actions';
 // notes: import Comment from...(copy from Post)
 import Post from './Post.jsx';
@@ -26,16 +26,16 @@ class PostsContainer extends Component {
   componentDidMount() {
     this.props.getPosts();
   }
-
   renderPosts() {
     if (Array.isArray(this.props.posts.posts)) {
+      //console.log(" ", this.props.posts.posts)
       return this.props.posts.posts.map((post, i) => (
         <Post
-          key={`Post ${i}`}
+        key={`Post ${i}`}
           title={post.title}
           body={post.body}
           userId={post.user_id}
-          postId={post.id}
+          postId={post._id}
           styling={post.user_id === this.props.userId ? 'MyPost' : null}
         />
       ));

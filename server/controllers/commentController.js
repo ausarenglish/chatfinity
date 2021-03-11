@@ -46,7 +46,7 @@ commentController.getComments = (req, res, next) => {
 
   db.query(query)
     .then((data) => {
-      res.locals.comments = data.rows[0];
+      res.locals.comments = data.rows;
       return next();
     })
     .catch((e) => {

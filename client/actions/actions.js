@@ -45,13 +45,21 @@ export const updateBody = (newBody) => ({
 });
 
 
-export const getComments = () => (dispatch) => {
-  fetch('/comments')
+export const getComments = (parentPostId) => (dispatch) => {
+  const reqBody = {
+    parent_post_id: parentPostId,
+  };
+  fetch('/comments', {
+    method: 'POST',
+    headers: { 'Content-Type': 'Application/JSON' },
+    body: JSON.stringify(reqBody),
+  })
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
       dispatch({ type: types.GET_COMMENTS, payload: data });
-    });
+    })
+    .catch((e) => console.log(e));
 };
 
 export const saveComment = (title, body, id) => (dispatch) => {
@@ -68,7 +76,7 @@ export const saveComment = (title, body, id) => (dispatch) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
+      console.log('data', data);
       dispatch({ type: types.SAVE_COMMENT, payload: data });
     })
     .catch((e) => console.log(e));

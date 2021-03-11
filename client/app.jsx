@@ -7,6 +7,7 @@ import Signup from './components/Signup.jsx';
 // notes: import Comments component
 import PostsContainer from './components/PostsContainer.jsx';
 import FeedLink from './components/FeedLink.jsx';
+import CommentContainer from './components/CommentContainer.jsx'
 
 const mapStateToProps = (state) => ({
   user: state.scratch.user,
@@ -52,6 +53,7 @@ class App extends Component {
           <BrowserRouter>
             <Switch>
               <Route path="/" exact component={PostsContainer} />
+              <Route path='/comments' exact component={CommentContainer} />
             </Switch>
           </BrowserRouter>
         </div>

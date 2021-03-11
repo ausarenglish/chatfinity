@@ -50,14 +50,9 @@ const Login = (props) => {
         body: JSON.stringify(reqBody),
       })
         .then((resp) => resp.json())
-        // .then((data) => {
-        //   //console.log(321321, data);
-        // })
         .then((data) => {
           console.log('data from login is: ', data);
           props.authenticate(data);
-          // props.history.push('/feed');
-          // history.push('/hello');
         })
         .catch((err) => console.log('Login fetch /auth/login: ERROR: ', err));
     }
