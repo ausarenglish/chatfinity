@@ -7,6 +7,7 @@ const mapStateToProps = (state) => {
     newPostTitle: state.posts.newPostTitle,
     newPostBody: state.posts.newPostBody,
     user: state.scratch.user,
+    
   };
 };
 

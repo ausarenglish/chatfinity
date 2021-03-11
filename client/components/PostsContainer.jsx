@@ -35,6 +35,7 @@ class PostsContainer extends Component {
           title={post.title}
           body={post.body}
           userId={post.user_id}
+          postId={post.id}
           styling={post.user_id === this.props.userId ? 'MyPost' : null}
         />
       ));

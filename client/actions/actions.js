@@ -9,7 +9,7 @@ export const getPosts = () => (dispatch) => {
   fetch('/posts')
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
+      console.log('postsdata: ', data);
       dispatch({ type: types.GET_POSTS, payload: data });
     });
 };
