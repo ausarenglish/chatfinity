@@ -76,51 +76,51 @@ const Signup = (props) => {
   }, [password2]);
 
   return (
-    <section className="mainSection">
+    <section className='mainSection'>
       <Navbar />
-      <div className="Login">
+      <div className='Login'>
         <article>
           <center>
-            <h2 className="SignUpHeader">Sign Up</h2>
+            <h2 className='SignUpHeader'>Sign Up</h2>
           </center>
-          <div className="createCharFields">
-            <label htmlFor="username">Username: </label>
+          <div className='createCharFields'>
+            <label htmlFor='username'>Username: </label>
             <input
-              name="username"
+              name='username'
               value={username}
               onChange={usernameOnChange}
             />
             {usernameError ? (
-              <span className="errorMsg">{usernameError}</span>
+              <span className='errorMsg'>{usernameError}</span>
             ) : null}
-            <label htmlFor="password">Password: </label>
+            <label htmlFor='password'>Password: </label>
             <input
-              name="password"
-              type="password"
+              name='password'
+              type='password'
               value={password}
               onChange={passwordOnChange}
             />
             {passwordError ? (
-              <span className="errorMsg">{passwordError}</span>
+              <span className='errorMsg'>{passwordError}</span>
             ) : null}
           </div>
-          <div className="createCharFields">
-            <label htmlFor="password2">Confirm: </label>
+          <div className='createCharFields'>
+            <label htmlFor='password2'>Confirm: </label>
             <input
-              name="password2"
-              type="password"
+              name='password2'
+              type='password'
               value={password2}
               onChange={password2OnChange}
             />
             {password2Error ? (
-              <span className="errorMsg">{password2Error}</span>
+              <span className='errorMsg'>{password2Error}</span>
             ) : null}
           </div>
-          <div className="signup">
-            <Link to="/" className="link">
+          <div className='signup'>
+            <Link to='/' className='link'>
               Login
             </Link>
-            <button type="button" className="btnMain" onClick={SignupUser}>
+            <button type='button' className='btnMain' onClick={SignupUser}>
               Sign Up
             </button>
           </div>
